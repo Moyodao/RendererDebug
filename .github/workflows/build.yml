@@ -22,11 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - run: git clone https://github.com/emscripten-core/emsdk.git
-      - run: cd emsdk
-      - run: sudo ./emsdk install latest
-      - run: sudo ./emsdk activate latest
-      - run: cd ../
+      - uses: mymindstorm/setup-emsdk@v11
+      - name: Verify
+        run: emcc -v
       
       - uses: actions/checkout@v2
         with:
@@ -34,4 +32,8 @@ jobs:
           path: renderer
       
       - run: cd renderer/platforms/Web
-      - run: sudo ./build.sh
+      - run: sudo ./build_env.sh
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: renderer/platforms/Web/result
