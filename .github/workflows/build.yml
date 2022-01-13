@@ -22,18 +22,32 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: mymindstorm/setup-emsdk@v11
-      - name: Verify
+      - name: 🔨 Setup emsdk
+        uses: mymindstorm/setup-emsdk@v11
+        with:
+          # Make sure to set a version number!
+          version: 3.1.1
+          # This is the name of the cache folder.
+          # The cache folder will be placed in the build directory,
+          #  so make sure it doesn't conflict with anything!
+          actions-cache-folder: 'emsdk-cache'
+          
+      - name: ✔ Verify emsdk
         run: emcc -v
       
-      - uses: actions/checkout@v2
+      - name: 📝 Checkout
+        uses: actions/checkout@v2
         with:
           repository: Moyodao/AvatarRenderer
           path: renderer
-      
-      - run: cd renderer/platforms/Web
-      - run: sudo ./build_env.sh
-      - uses: peaceiris/actions-gh-pages@v3
+          token: ${{ secrets.TOKEN }}
+    
+      - name: 🚧 Build
+        working-directory: renderer/platforms/Web
+        run: ./build_env.sh
+        
+      - name: 🚀 Publish
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: renderer/platforms/Web/result
+          publish_dir: renderer/platforms/Web/build/result
