@@ -202,7 +202,7 @@ var objAssign = Object.assign;
     }
   
    }
-   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 5182689}], "remote_package_size": 5182689, "package_uuid": "6c57d32b-696f-4e13-86c3-591cb1e4aca2"});
+   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 5182689}], "remote_package_size": 5182689, "package_uuid": "9bd9e236-ebbf-4ebc-98a4-7ef29f34026d"});
   
   })();
   
