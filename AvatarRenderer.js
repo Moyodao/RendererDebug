@@ -202,7 +202,7 @@ var objAssign = Object.assign;
     }
   
    }
-   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 5182689}], "remote_package_size": 5182689, "package_uuid": "9bd9e236-ebbf-4ebc-98a4-7ef29f34026d"});
+   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 5182689}], "remote_package_size": 5182689, "package_uuid": "77b8286c-55ba-4d70-bb1d-cbd1638e6cd6"});
   
   })();
   
@@ -9735,6 +9735,12 @@ var _fflush = Module["_fflush"] = createExportWrapper("fflush");
 var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
 
 /** @type {function(...*):?} */
+var _testFunc = Module["_testFunc"] = createExportWrapper("testFunc");
+
+/** @type {function(...*):?} */
+var _SetMainTexture = Module["_SetMainTexture"] = createExportWrapper("SetMainTexture");
+
+/** @type {function(...*):?} */
 var _saveSetjmp = Module["_saveSetjmp"] = createExportWrapper("saveSetjmp");
 
 /** @type {function(...*):?} */
@@ -10125,8 +10131,8 @@ try {
 
 if (!Object.getOwnPropertyDescriptor(Module, "intArrayFromString")) Module["intArrayFromString"] = function() { abort("'intArrayFromString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "intArrayToString")) Module["intArrayToString"] = function() { abort("'intArrayToString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
-if (!Object.getOwnPropertyDescriptor(Module, "ccall")) Module["ccall"] = function() { abort("'ccall' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
-if (!Object.getOwnPropertyDescriptor(Module, "cwrap")) Module["cwrap"] = function() { abort("'cwrap' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
+Module["ccall"] = ccall;
+Module["cwrap"] = cwrap;
 if (!Object.getOwnPropertyDescriptor(Module, "setValue")) Module["setValue"] = function() { abort("'setValue' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "getValue")) Module["getValue"] = function() { abort("'getValue' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "allocate")) Module["allocate"] = function() { abort("'allocate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
