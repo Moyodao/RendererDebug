@@ -202,7 +202,7 @@ var objAssign = Object.assign;
     }
   
    }
-   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 5182368}], "remote_package_size": 5182368, "package_uuid": "ec4c2e35-a83d-47f2-8fc0-4c5d6a9789c2"});
+   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 6545197}], "remote_package_size": 6545197, "package_uuid": "5033be34-361e-44ac-8df9-34535269c207"});
   
   })();
   
@@ -6893,6 +6893,16 @@ var ASM_CONSTS = {
       return getTempRet0();
     }
 
+  function _getentropy(buffer, size) {
+      if (!_getentropy.randomDevice) {
+        _getentropy.randomDevice = getRandomDevice();
+      }
+      for (var i = 0; i < size; i++) {
+        HEAP8[(((buffer)+(i))>>0)] = _getentropy.randomDevice();
+      }
+      return 0;
+    }
+
   function __webgl_enable_ANGLE_instanced_arrays(ctx) {
       // Extension available in WebGL 1 from Firefox 26 and Google Chrome 30 onwards. Core feature in WebGL 2.
       var ext = ctx.getExtension('ANGLE_instanced_arrays');
@@ -7238,6 +7248,8 @@ var ASM_CONSTS = {
       var ibo = GLctx.getParameter(0x8895 /*ELEMENT_ARRAY_BUFFER_BINDING*/);
       GLctx.currentElementArrayBufferBinding = ibo ? (ibo.name | 0) : 0;
     }
+
+  function _glBlendFunc(x0, x1) { GLctx['blendFunc'](x0, x1) }
 
   function _glBlitFramebuffer(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9) { GLctx['blitFramebuffer'](x0, x1, x2, x3, x4, x5, x6, x7, x8, x9) }
 
@@ -9606,6 +9618,7 @@ var asmLibraryArg = {
   "fd_seek": _fd_seek,
   "fd_write": _fd_write,
   "getTempRet0": _getTempRet0,
+  "getentropy": _getentropy,
   "glActiveTexture": _glActiveTexture,
   "glAttachShader": _glAttachShader,
   "glBindBuffer": _glBindBuffer,
@@ -9613,6 +9626,7 @@ var asmLibraryArg = {
   "glBindRenderbuffer": _glBindRenderbuffer,
   "glBindTexture": _glBindTexture,
   "glBindVertexArray": _glBindVertexArray,
+  "glBlendFunc": _glBlendFunc,
   "glBlitFramebuffer": _glBlitFramebuffer,
   "glBufferData": _glBufferData,
   "glClear": _glClear,
