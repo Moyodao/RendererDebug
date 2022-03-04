@@ -202,7 +202,7 @@ var objAssign = Object.assign;
     }
   
    }
-   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 6545118}], "remote_package_size": 6545118, "package_uuid": "a68caa53-95ec-4a27-936c-ddbeff46d008"});
+   loadPackage({"files": [{"filename": "/Assets.zip", "start": 0, "end": 6545118}], "remote_package_size": 6545118, "package_uuid": "d5548547-802b-48ce-bb36-2a7612668941"});
   
   })();
   
@@ -8833,6 +8833,10 @@ var ASM_CONSTS = {
 
   function _glfwPollEvents() {}
 
+  function _glfwSetCursorPosCallback(winid, cbfun) {
+      return GLFW.setCursorPosCallback(winid, cbfun);
+    }
+
   function _glfwSwapBuffers(winid) {
       GLFW.swapBuffers(winid);
     }
@@ -9693,6 +9697,7 @@ var asmLibraryArg = {
   "glfwInit": _glfwInit,
   "glfwMakeContextCurrent": _glfwMakeContextCurrent,
   "glfwPollEvents": _glfwPollEvents,
+  "glfwSetCursorPosCallback": _glfwSetCursorPosCallback,
   "glfwSwapBuffers": _glfwSwapBuffers,
   "glfwTerminate": _glfwTerminate,
   "glfwWindowHint": _glfwWindowHint,
